@@ -3,4 +3,5 @@ Release
 *.sdf
 *.opensdf
 *.suo
+.*.swp
 
