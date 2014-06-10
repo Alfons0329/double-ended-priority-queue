@@ -103,6 +103,13 @@ class MinMaxHeap{
 		}
 	}
 public:
+    int getSize(){
+        return data.size();
+    }
+
+    bool isEmpty(){
+        return data.empty();
+    }
 
 	void push(T x){
 		data.push_back(x);
