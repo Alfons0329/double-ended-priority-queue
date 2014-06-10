@@ -34,6 +34,25 @@ void PushAndDeleteTest(){
 	cout << "delete test finished!" << endl;
 }
 
+void EmptyAndSizeTest(){
+    int N = 100;
+    MinMaxHeap<int> h;
+    cout << "empty test start." << endl;
+    for(int i=0 ; i < N ; i++){
+        int v = rand();
+        h.push(v);
+    }
+    for(int i=0 ; i < 2*N ; i++){
+        if(!h.isEmpty()){
+            if(h.getSize()==0)cerr << "expected: positive number, actual: 0" << endl;
+            h.deleteMax();
+        }else{
+            if(h.getSize()!=0)cerr << "expected: 0, actual: " << h.getSize() << endl;
+        }
+    }
+    cout << "empty test finished!" << endl;
+}
+
 double GetTime(){
 	return (double)clock() / CLOCKS_PER_SEC;
 }
@@ -95,6 +114,7 @@ void PerformanceTest(){
 
 int main(){
 	PushAndDeleteTest();
+    EmptyAndSizeTest();
 	PerformanceTest();
 	return 0;
 }
